@@ -1,0 +1,431 @@
+{
+    "title": "Amazon Elasticsearch Service",
+    "description": "<fullname>Amazon Elasticsearch Configuration Service</fullname> <p>Use the Amazon Elasticsearch configuration API to create, configure, and manage Elasticsearch domains.</p> <p>The endpoint for configuration service requests is region-specific: es.<i>region</i>.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions\" target=\"_blank\">Regions and Endpoints</a>.</p>",
+    "docsUrl": "https://aws.amazon.com/es/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/es/2015-01-01/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://es.amazonaws.com/",
+                    "http://es.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListDomainNames": {
+            "main": "./lib/actions/ListDomainNames.js",
+            "title": "Returns the name of all Elasticsearch domains owned by the current user's account. ",
+            "description": "Returns the name of all Elasticsearch domains owned by the current user's account. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDomainNames.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCompatibleElasticsearchVersions": {
+            "main": "./lib/actions/GetCompatibleElasticsearchVersions.js",
+            "title": " Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. ",
+            "description": " Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCompatibleElasticsearchVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateElasticsearchDomain": {
+            "main": "./lib/actions/CreateElasticsearchDomain.js",
+            "title": "Creates a new Elasticsearch domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.",
+            "description": "Creates a new Elasticsearch domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateElasticsearchDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeElasticsearchDomains": {
+            "main": "./lib/actions/DescribeElasticsearchDomains.js",
+            "title": "Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.",
+            "description": "Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeElasticsearchDomains.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteElasticsearchDomain": {
+            "main": "./lib/actions/DeleteElasticsearchDomain.js",
+            "title": "Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.",
+            "description": "Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteElasticsearchDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeElasticsearchDomain": {
+            "main": "./lib/actions/DescribeElasticsearchDomain.js",
+            "title": "Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.",
+            "description": "Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeElasticsearchDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeElasticsearchDomainConfig": {
+            "main": "./lib/actions/DescribeElasticsearchDomainConfig.js",
+            "title": "Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.",
+            "description": "Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeElasticsearchDomainConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateElasticsearchDomainConfig": {
+            "main": "./lib/actions/UpdateElasticsearchDomainConfig.js",
+            "title": "Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. ",
+            "description": "Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateElasticsearchDomainConfig.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeElasticsearchInstanceTypeLimits": {
+            "main": "./lib/actions/DescribeElasticsearchInstanceTypeLimits.js",
+            "title": " Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion. When modifying existing Domain, specify the <code> <a>DomainName</a> </code> to know what Limits are supported for modifying. ",
+            "description": " Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion. When modifying existing Domain, specify the <code> <a>DomainName</a> </code> to know what Limits are supported for modifying. ",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeElasticsearchInstanceTypeLimits.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListElasticsearchInstanceTypes": {
+            "main": "./lib/actions/ListElasticsearchInstanceTypes.js",
+            "title": "List all Elasticsearch instance types that are supported for given ElasticsearchVersion",
+            "description": "List all Elasticsearch instance types that are supported for given ElasticsearchVersion",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListElasticsearchInstanceTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PurchaseReservedElasticsearchInstanceOffering": {
+            "main": "./lib/actions/PurchaseReservedElasticsearchInstanceOffering.js",
+            "title": "Allows you to purchase reserved Elasticsearch instances.",
+            "description": "Allows you to purchase reserved Elasticsearch instances.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PurchaseReservedElasticsearchInstanceOffering.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeReservedElasticsearchInstanceOfferings": {
+            "main": "./lib/actions/DescribeReservedElasticsearchInstanceOfferings.js",
+            "title": "Lists available reserved Elasticsearch instance offerings.",
+            "description": "Lists available reserved Elasticsearch instance offerings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeReservedElasticsearchInstanceOfferings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DescribeReservedElasticsearchInstances": {
+            "main": "./lib/actions/DescribeReservedElasticsearchInstances.js",
+            "title": "Returns information about reserved Elasticsearch instances for this account.",
+            "description": "Returns information about reserved Elasticsearch instances for this account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DescribeReservedElasticsearchInstances.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteElasticsearchServiceRole": {
+            "main": "./lib/actions/DeleteElasticsearchServiceRole.js",
+            "title": "Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.",
+            "description": "Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteElasticsearchServiceRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CancelElasticsearchServiceSoftwareUpdate": {
+            "main": "./lib/actions/CancelElasticsearchServiceSoftwareUpdate.js",
+            "title": "Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.",
+            "description": "Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CancelElasticsearchServiceSoftwareUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartElasticsearchServiceSoftwareUpdate": {
+            "main": "./lib/actions/StartElasticsearchServiceSoftwareUpdate.js",
+            "title": "Schedules a service software update for an Amazon ES domain.",
+            "description": "Schedules a service software update for an Amazon ES domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartElasticsearchServiceSoftwareUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpgradeElasticsearchDomain": {
+            "main": "./lib/actions/UpgradeElasticsearchDomain.js",
+            "title": "Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.",
+            "description": "Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpgradeElasticsearchDomain.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetUpgradeHistory": {
+            "main": "./lib/actions/GetUpgradeHistory.js",
+            "title": "Retrieves the complete history of the last 10 upgrades that were performed on the domain.",
+            "description": "Retrieves the complete history of the last 10 upgrades that were performed on the domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetUpgradeHistory.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetUpgradeStatus": {
+            "main": "./lib/actions/GetUpgradeStatus.js",
+            "title": "Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.",
+            "description": "Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetUpgradeStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListElasticsearchVersions": {
+            "main": "./lib/actions/ListElasticsearchVersions.js",
+            "title": "List all supported Elasticsearch versions",
+            "description": "List all supported Elasticsearch versions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListElasticsearchVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AddTags": {
+            "main": "./lib/actions/AddTags.js",
+            "title": "Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging\" target=\"_blank\"> Tagging Amazon Elasticsearch Service Domains for more information.</a>",
+            "description": "Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging\" target=\"_blank\"> Tagging Amazon Elasticsearch Service Domains for more information.</a>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AddTags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RemoveTags": {
+            "main": "./lib/actions/RemoveTags.js",
+            "title": "Removes the specified set of tags from the specified Elasticsearch domain.",
+            "description": "Removes the specified set of tags from the specified Elasticsearch domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RemoveTags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListTags": {
+            "main": "./lib/actions/ListTags.js",
+            "title": "Returns all tags for the given Elasticsearch domain.",
+            "description": "Returns all tags for the given Elasticsearch domain.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListTags.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

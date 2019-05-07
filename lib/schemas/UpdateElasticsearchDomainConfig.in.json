@@ -1,0 +1,309 @@
+{
+    "type": "object",
+    "properties": {
+        "DomainName": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.",
+            "properties": {
+                "AccessPolicies": {
+                    "description": "IAM access policy as a JSON-formatted string.",
+                    "type": "string"
+                },
+                "AdvancedOptions": {
+                    "description": "Modifies the advanced option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options\" target=\"_blank\">Configuration Advanced Options</a> for more information.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "CognitoOptions": {
+                    "description": "Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html\" target=\"_blank\">Amazon Cognito Authentication for Kibana</a>.",
+                    "properties": {
+                        "Enabled": {
+                            "description": "Specifies the option to enable Cognito for Kibana authentication.",
+                            "type": "boolean"
+                        },
+                        "IdentityPoolId": {
+                            "description": "Specifies the Cognito identity pool ID for Kibana authentication.",
+                            "maxLength": 55,
+                            "minLength": 1,
+                            "pattern": "[\\w-]+:[0-9a-f-]+",
+                            "type": "string"
+                        },
+                        "RoleArn": {
+                            "description": "Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.",
+                            "maxLength": 2048,
+                            "minLength": 20,
+                            "type": "string"
+                        },
+                        "UserPoolId": {
+                            "description": "Specifies the Cognito user pool ID for Kibana authentication.",
+                            "maxLength": 55,
+                            "minLength": 1,
+                            "pattern": "[\\w-]+_[0-9a-zA-Z]+",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "EBSOptions": {
+                    "description": "Specify the type and size of the EBS volume that you want to use. ",
+                    "properties": {
+                        "EBSEnabled": {
+                            "description": "Specifies whether EBS-based storage is enabled.",
+                            "type": "boolean"
+                        },
+                        "Iops": {
+                            "description": "Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).",
+                            "type": "integer"
+                        },
+                        "VolumeSize": {
+                            "description": " Integer to specify the size of an EBS volume.",
+                            "type": "integer"
+                        },
+                        "VolumeType": {
+                            "description": " Specifies the volume type for EBS-based storage.",
+                            "enum": [
+                                "standard",
+                                "gp2",
+                                "io1"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "ElasticsearchClusterConfig": {
+                    "description": "The type and number of instances to instantiate for the domain cluster.",
+                    "properties": {
+                        "DedicatedMasterCount": {
+                            "description": "Total number of dedicated master nodes, active and on standby, for the cluster.",
+                            "type": "integer"
+                        },
+                        "DedicatedMasterEnabled": {
+                            "description": "A boolean value to indicate whether a dedicated master node is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-dedicatedmasternodes\" target=\"_blank\">About Dedicated Master Nodes</a> for more information.",
+                            "type": "boolean"
+                        },
+                        "DedicatedMasterType": {
+                            "description": "The instance type for a dedicated master node.",
+                            "enum": [
+                                "m3.medium.elasticsearch",
+                                "m3.large.elasticsearch",
+                                "m3.xlarge.elasticsearch",
+                                "m3.2xlarge.elasticsearch",
+                                "m4.large.elasticsearch",
+                                "m4.xlarge.elasticsearch",
+                                "m4.2xlarge.elasticsearch",
+                                "m4.4xlarge.elasticsearch",
+                                "m4.10xlarge.elasticsearch",
+                                "t2.micro.elasticsearch",
+                                "t2.small.elasticsearch",
+                                "t2.medium.elasticsearch",
+                                "r3.large.elasticsearch",
+                                "r3.xlarge.elasticsearch",
+                                "r3.2xlarge.elasticsearch",
+                                "r3.4xlarge.elasticsearch",
+                                "r3.8xlarge.elasticsearch",
+                                "i2.xlarge.elasticsearch",
+                                "i2.2xlarge.elasticsearch",
+                                "d2.xlarge.elasticsearch",
+                                "d2.2xlarge.elasticsearch",
+                                "d2.4xlarge.elasticsearch",
+                                "d2.8xlarge.elasticsearch",
+                                "c4.large.elasticsearch",
+                                "c4.xlarge.elasticsearch",
+                                "c4.2xlarge.elasticsearch",
+                                "c4.4xlarge.elasticsearch",
+                                "c4.8xlarge.elasticsearch",
+                                "r4.large.elasticsearch",
+                                "r4.xlarge.elasticsearch",
+                                "r4.2xlarge.elasticsearch",
+                                "r4.4xlarge.elasticsearch",
+                                "r4.8xlarge.elasticsearch",
+                                "r4.16xlarge.elasticsearch",
+                                "i3.large.elasticsearch",
+                                "i3.xlarge.elasticsearch",
+                                "i3.2xlarge.elasticsearch",
+                                "i3.4xlarge.elasticsearch",
+                                "i3.8xlarge.elasticsearch",
+                                "i3.16xlarge.elasticsearch"
+                            ],
+                            "type": "string"
+                        },
+                        "InstanceCount": {
+                            "description": "The number of instances in the specified domain cluster.",
+                            "type": "integer"
+                        },
+                        "InstanceType": {
+                            "description": "The instance type for an Elasticsearch cluster.",
+                            "enum": [
+                                "m3.medium.elasticsearch",
+                                "m3.large.elasticsearch",
+                                "m3.xlarge.elasticsearch",
+                                "m3.2xlarge.elasticsearch",
+                                "m4.large.elasticsearch",
+                                "m4.xlarge.elasticsearch",
+                                "m4.2xlarge.elasticsearch",
+                                "m4.4xlarge.elasticsearch",
+                                "m4.10xlarge.elasticsearch",
+                                "t2.micro.elasticsearch",
+                                "t2.small.elasticsearch",
+                                "t2.medium.elasticsearch",
+                                "r3.large.elasticsearch",
+                                "r3.xlarge.elasticsearch",
+                                "r3.2xlarge.elasticsearch",
+                                "r3.4xlarge.elasticsearch",
+                                "r3.8xlarge.elasticsearch",
+                                "i2.xlarge.elasticsearch",
+                                "i2.2xlarge.elasticsearch",
+                                "d2.xlarge.elasticsearch",
+                                "d2.2xlarge.elasticsearch",
+                                "d2.4xlarge.elasticsearch",
+                                "d2.8xlarge.elasticsearch",
+                                "c4.large.elasticsearch",
+                                "c4.xlarge.elasticsearch",
+                                "c4.2xlarge.elasticsearch",
+                                "c4.4xlarge.elasticsearch",
+                                "c4.8xlarge.elasticsearch",
+                                "r4.large.elasticsearch",
+                                "r4.xlarge.elasticsearch",
+                                "r4.2xlarge.elasticsearch",
+                                "r4.4xlarge.elasticsearch",
+                                "r4.8xlarge.elasticsearch",
+                                "r4.16xlarge.elasticsearch",
+                                "i3.large.elasticsearch",
+                                "i3.xlarge.elasticsearch",
+                                "i3.2xlarge.elasticsearch",
+                                "i3.4xlarge.elasticsearch",
+                                "i3.8xlarge.elasticsearch",
+                                "i3.16xlarge.elasticsearch"
+                            ],
+                            "type": "string"
+                        },
+                        "ZoneAwarenessConfig": {
+                            "description": "Specifies the zone awareness configuration for a domain when zone awareness is enabled.",
+                            "properties": {
+                                "AvailabilityZoneCount": {
+                                    "description": "An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "ZoneAwarenessEnabled": {
+                            "description": "A boolean value to indicate whether zone awareness is enabled. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-zoneawareness\" target=\"_blank\">About Zone Awareness</a> for more information.",
+                            "type": "boolean"
+                        }
+                    },
+                    "type": "object"
+                },
+                "LogPublishingOptions": {
+                    "description": "Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing options to publish a given type of Elasticsearch log.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "description": "Type of Log File, it can be one of the following: <ul> <li>INDEX_SLOW_LOGS: Index slow logs contain insert requests that took more time than configured index query log threshold to execute.</li> <li>SEARCH_SLOW_LOGS: Search slow logs contain search queries that took more time than configured search query log threshold to execute.</li> <li>ES_APPLICATION_LOGS: Elasticsearch application logs contain information about errors and warnings raised during the operation of the service and can be useful for troubleshooting.</li> </ul> ",
+                                "enum": [
+                                    "INDEX_SLOW_LOGS",
+                                    "SEARCH_SLOW_LOGS",
+                                    "ES_APPLICATION_LOGS"
+                                ],
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "Log Publishing option that is set for given domain. <br/>Attributes and their details: <ul> <li>CloudWatchLogsLogGroupArn: ARN of the Cloudwatch log group to which log needs to be published.</li> <li>Enabled: Whether the log publishing for given log type is enabled or not</li> </ul> ",
+                                "properties": {
+                                    "CloudWatchLogsLogGroupArn": {
+                                        "description": "ARN of the Cloudwatch log group to which log needs to be published.",
+                                        "type": "string"
+                                    },
+                                    "Enabled": {
+                                        "description": " Specifies whether given log publishing option is enabled or not.",
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "SnapshotOptions": {
+                    "description": "Option to set the time, in UTC format, for the daily automated snapshot. Default value is <code>0</code> hours. ",
+                    "properties": {
+                        "AutomatedSnapshotStartHour": {
+                            "description": "Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.",
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "VPCOptions": {
+                    "description": "Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc\" target=\"_blank\">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>",
+                    "properties": {
+                        "SecurityGroupIds": {
+                            "description": "Specifies the security groups for VPC endpoint.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "SubnetIds": {
+                            "description": "Specifies the subnets for VPC endpoint.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

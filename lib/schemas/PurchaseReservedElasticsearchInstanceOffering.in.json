@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code>",
+            "properties": {
+                "InstanceCount": {
+                    "description": "The number of Elasticsearch instances to reserve.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "ReservationName": {
+                    "description": "A customer-specified identifier to track this reservation.",
+                    "maxLength": 64,
+                    "minLength": 5,
+                    "type": "string"
+                },
+                "ReservedElasticsearchInstanceOfferingId": {
+                    "description": "The ID of the reserved Elasticsearch instance offering to purchase.",
+                    "pattern": "\\p{XDigit}{8}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{4}-\\p{XDigit}{12}",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ReservedElasticsearchInstanceOfferingId",
+                "ReservationName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
