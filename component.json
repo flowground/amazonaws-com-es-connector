@@ -1,6 +1,6 @@
 {
     "title": "Amazon Elasticsearch Service",
-    "description": "<fullname>Amazon Elasticsearch Configuration Service</fullname> <p>Use the Amazon Elasticsearch configuration API to create, configure, and manage Elasticsearch domains.</p> <p>The endpoint for configuration service requests is region-specific: es.<i>region</i>.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <a href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions\" target=\"_blank\">Regions and Endpoints</a>.</p>",
+    "description": "Amazon Elasticsearch Configuration Service Use the Amazon Elasticsearch\nconfiguration API to create, configure, and manage Elasticsearch domains.\n\nThe endpoint for configuration service requests is region-specific: es.region\n.amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of\nsupported regions and endpoints, see Regions and Endpoints\n[http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions]\n.",
     "docsUrl": "https://aws.amazon.com/es/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/es/2015-01-01/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "ListDomainNames": {
             "main": "./lib/actions/ListDomainNames.js",
-            "title": "Returns the name of all Elasticsearch domains owned by the current user's account. ",
+            "title": "ListDomainNames",
             "description": "Returns the name of all Elasticsearch domains owned by the current user's account. ",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "GetCompatibleElasticsearchVersions": {
             "main": "./lib/actions/GetCompatibleElasticsearchVersions.js",
-            "title": " Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. ",
+            "title": "GetCompatibleElasticsearchVersions",
             "description": " Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. ",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "CreateElasticsearchDomain": {
             "main": "./lib/actions/CreateElasticsearchDomain.js",
-            "title": "Creates a new Elasticsearch domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.",
+            "title": "CreateElasticsearchDomain",
             "description": "Creates a new Elasticsearch domain. For more information, see <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains\" target=\"_blank\">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "DescribeElasticsearchDomains": {
             "main": "./lib/actions/DescribeElasticsearchDomains.js",
-            "title": "Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.",
+            "title": "DescribeElasticsearchDomains",
             "description": "Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "DeleteElasticsearchDomain": {
             "main": "./lib/actions/DeleteElasticsearchDomain.js",
-            "title": "Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.",
+            "title": "DeleteElasticsearchDomain",
             "description": "Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.",
             "fields": {
                 "verbose": {
@@ -123,7 +123,7 @@
         },
         "DescribeElasticsearchDomain": {
             "main": "./lib/actions/DescribeElasticsearchDomain.js",
-            "title": "Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.",
+            "title": "DescribeElasticsearchDomain",
             "description": "Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "DescribeElasticsearchDomainConfig": {
             "main": "./lib/actions/DescribeElasticsearchDomainConfig.js",
-            "title": "Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.",
+            "title": "DescribeElasticsearchDomainConfig",
             "description": "Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "UpdateElasticsearchDomainConfig": {
             "main": "./lib/actions/UpdateElasticsearchDomainConfig.js",
-            "title": "Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. ",
+            "title": "UpdateElasticsearchDomainConfig",
             "description": "Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. ",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "DescribeElasticsearchInstanceTypeLimits": {
             "main": "./lib/actions/DescribeElasticsearchInstanceTypeLimits.js",
-            "title": " Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion. When modifying existing Domain, specify the <code> <a>DomainName</a> </code> to know what Limits are supported for modifying. ",
+            "title": "DescribeElasticsearchInstanceTypeLimits",
             "description": " Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion. When modifying existing Domain, specify the <code> <a>DomainName</a> </code> to know what Limits are supported for modifying. ",
             "fields": {
                 "verbose": {
@@ -191,7 +191,7 @@
         },
         "ListElasticsearchInstanceTypes": {
             "main": "./lib/actions/ListElasticsearchInstanceTypes.js",
-            "title": "List all Elasticsearch instance types that are supported for given ElasticsearchVersion",
+            "title": "ListElasticsearchInstanceTypes",
             "description": "List all Elasticsearch instance types that are supported for given ElasticsearchVersion",
             "fields": {
                 "verbose": {
@@ -208,7 +208,7 @@
         },
         "PurchaseReservedElasticsearchInstanceOffering": {
             "main": "./lib/actions/PurchaseReservedElasticsearchInstanceOffering.js",
-            "title": "Allows you to purchase reserved Elasticsearch instances.",
+            "title": "PurchaseReservedElasticsearchInstanceOffering",
             "description": "Allows you to purchase reserved Elasticsearch instances.",
             "fields": {
                 "verbose": {
@@ -225,7 +225,7 @@
         },
         "DescribeReservedElasticsearchInstanceOfferings": {
             "main": "./lib/actions/DescribeReservedElasticsearchInstanceOfferings.js",
-            "title": "Lists available reserved Elasticsearch instance offerings.",
+            "title": "DescribeReservedElasticsearchInstanceOfferings",
             "description": "Lists available reserved Elasticsearch instance offerings.",
             "fields": {
                 "verbose": {
@@ -242,7 +242,7 @@
         },
         "DescribeReservedElasticsearchInstances": {
             "main": "./lib/actions/DescribeReservedElasticsearchInstances.js",
-            "title": "Returns information about reserved Elasticsearch instances for this account.",
+            "title": "DescribeReservedElasticsearchInstances",
             "description": "Returns information about reserved Elasticsearch instances for this account.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "DeleteElasticsearchServiceRole": {
             "main": "./lib/actions/DeleteElasticsearchServiceRole.js",
-            "title": "Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.",
+            "title": "DeleteElasticsearchServiceRole",
             "description": "Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr\" target=\"_blank\">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "CancelElasticsearchServiceSoftwareUpdate": {
             "main": "./lib/actions/CancelElasticsearchServiceSoftwareUpdate.js",
-            "title": "Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.",
+            "title": "CancelElasticsearchServiceSoftwareUpdate",
             "description": "Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "StartElasticsearchServiceSoftwareUpdate": {
             "main": "./lib/actions/StartElasticsearchServiceSoftwareUpdate.js",
-            "title": "Schedules a service software update for an Amazon ES domain.",
+            "title": "StartElasticsearchServiceSoftwareUpdate",
             "description": "Schedules a service software update for an Amazon ES domain.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "UpgradeElasticsearchDomain": {
             "main": "./lib/actions/UpgradeElasticsearchDomain.js",
-            "title": "Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.",
+            "title": "UpgradeElasticsearchDomain",
             "description": "Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "GetUpgradeHistory": {
             "main": "./lib/actions/GetUpgradeHistory.js",
-            "title": "Retrieves the complete history of the last 10 upgrades that were performed on the domain.",
+            "title": "GetUpgradeHistory",
             "description": "Retrieves the complete history of the last 10 upgrades that were performed on the domain.",
             "fields": {
                 "verbose": {
@@ -344,7 +344,7 @@
         },
         "GetUpgradeStatus": {
             "main": "./lib/actions/GetUpgradeStatus.js",
-            "title": "Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.",
+            "title": "GetUpgradeStatus",
             "description": "Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.",
             "fields": {
                 "verbose": {
@@ -361,7 +361,7 @@
         },
         "ListElasticsearchVersions": {
             "main": "./lib/actions/ListElasticsearchVersions.js",
-            "title": "List all supported Elasticsearch versions",
+            "title": "ListElasticsearchVersions",
             "description": "List all supported Elasticsearch versions",
             "fields": {
                 "verbose": {
@@ -378,7 +378,7 @@
         },
         "AddTags": {
             "main": "./lib/actions/AddTags.js",
-            "title": "Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging\" target=\"_blank\"> Tagging Amazon Elasticsearch Service Domains for more information.</a>",
+            "title": "AddTags",
             "description": "Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <a href=\"http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging\" target=\"_blank\"> Tagging Amazon Elasticsearch Service Domains for more information.</a>",
             "fields": {
                 "verbose": {
@@ -395,7 +395,7 @@
         },
         "RemoveTags": {
             "main": "./lib/actions/RemoveTags.js",
-            "title": "Removes the specified set of tags from the specified Elasticsearch domain.",
+            "title": "RemoveTags",
             "description": "Removes the specified set of tags from the specified Elasticsearch domain.",
             "fields": {
                 "verbose": {
@@ -412,7 +412,7 @@
         },
         "ListTags": {
             "main": "./lib/actions/ListTags.js",
-            "title": "Returns all tags for the given Elasticsearch domain.",
+            "title": "ListTags",
             "description": "Returns all tags for the given Elasticsearch domain.",
             "fields": {
                 "verbose": {
